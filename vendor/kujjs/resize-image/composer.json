@@ -1,0 +1,46 @@
+{
+    "name": "kujjs/resize-image",
+    "type": "library",
+    "description": "Resize images with predefined sizes",
+    "keywords": [
+        "kujjs",
+        "laravel",
+        "php",
+        "images",
+        "resize"
+    ],
+    "version": "0.5.5.1",
+    "homepage": "https://github.com/kujjs/resize-image",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nelson Jara",
+            "email": "contacto@kujjs.com",
+            "homepage": "http://kujjs.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "illuminate/support": "~5.0",
+        "anakadote/laravel-5-image-manager": "@dev"
+
+    },
+    
+    "autoload": {
+        "psr-4": {
+            "kujjs\\imageManager\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "kujjs\\imageManager\\imageManagerServiceProvider"
+            ],
+            "aliases": {
+                "Image": "kujjs\\imageManager\\Facades\\ImageManager"
+            }
+        }
+    },
+    "prefer-stable": true
+}

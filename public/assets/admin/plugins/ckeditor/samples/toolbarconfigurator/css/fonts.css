@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "Preeti";
+    src: url( ../font/preeti.TTF ); /* IE */
+    src: local("preeti"), url("../font/preeti.TTF") format("truetype"); /*non-IE*/
+}

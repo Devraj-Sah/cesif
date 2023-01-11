@@ -1,0 +1,6 @@
+
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/demoradiantnepal/csif-nepal.demo.radiantnepal.com/
+    - /bin/cp -r * $DEPLOYPATH
