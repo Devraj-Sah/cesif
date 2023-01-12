@@ -2,5 +2,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home1/demoradiantnepal/csif-nepal.demo.radiantnepal.com/
+    - export DEPLOYPATH=/home/cesifnepal/public_html/
     - /bin/cp -r * $DEPLOYPATH
