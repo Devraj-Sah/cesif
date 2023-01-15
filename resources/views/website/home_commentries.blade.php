@@ -29,11 +29,11 @@
 
                                     {{ Str::limit($home_commentaries_item->caption, 30) }}
                                   </h5>
-                                <p class="lh-22 mt-10"> {!! Str::limit($home_commentaries_item->short_content, 80) !!}</p>
+                                <p class="lh-22 mt-10"> {{ Str::limit($home_commentaries_item->short_content, 80) }}</p>
                                    <br>
                                 <p> Posted by: <span style="color: #F37C7A"> {{ $home_commentaries_item->icon_image_caption }}</span></p>
 
-                                <a class="fz-14 mt-10 btn-green-br" href="{{ route('single_career', $home_commentaries_item->nav_name) }}">Read More</a>
+                                <a class="fz-14 mt-10 btn-green-br" href="{{ route('single_career', $home_commentaries_item->nav_name) }}" target="_blank">Read More</a>
                             </div>
                         </div>
                     @endforeach

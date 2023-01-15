@@ -18,7 +18,7 @@
                     {{-- default-publication.jpg --}}
                     <div class="row mt-50">
                       
-                            <div class="publication-sliderE">
+                            <div class="publication-sliderE" style="display: flex; flex-wrap:wrap">
                                 @foreach ($home_publication as $home_publication_item)
                                         <div class="col-lg-4 col-md-4">
                                             
@@ -30,7 +30,7 @@
                                                         class="img-responsive" style="object-fit: unset">
                                                 @else
                                                     <img src="/website/images/default-publication.jpg" alt=""
-                                                        class="img-responsive">
+                                                        class="img-responsive" style="width:100%; max-height:220px; min-height:220px">
                                                 @endif
                                                 <a
                                                     href="{{ route('single_career', $home_publication_item->nav_name) }}">

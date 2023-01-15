@@ -8,7 +8,7 @@
     $all_nav = [];
     $commentaries = App\Models\Navigation::query()
         ->where('page_type', 'Monthly Analysis')
-        // ->orderBy('created_at', 'desc')
+        ->orderBy('page_title', 'desc')
         ->get();
     
     foreach ($commentaries as $index => $value) {
@@ -16,6 +16,7 @@
         $all_nav[$p->page_title] = $p;
     }
     
+
 @endphp
 
 

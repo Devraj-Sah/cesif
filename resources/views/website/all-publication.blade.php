@@ -20,18 +20,18 @@
     </section>
     <section class="mb-50">
         <div class="container">
-            <div class="row">
+            <div class="row" style=" display: flex; flex-wrap: wrap;">
                 @foreach ($publication_parent_sub as $publication_parent_subitem)
-                    <div class="col-md-4 r-event mt-25">
+                    <div class="col-md-4 r-event mt-20">
                         <div class="item">
                             <a href="@if ($publication_parent_subitem->page_type == "Group")/{{$slug1}}/{{$publication_parent_subitem->nav_name}}@else{{ route('single_career', $publication_parent_subitem->nav_name) }}@endif ">
                                 <div class="monthly-img text-center">
                                     @if ($publication_parent_subitem->banner_image)
                                         <img src="{{ $publication_parent_subitem->banner_image }}" alt=""
-                                            class="img-responsive">
+                                            class="img-responsive" style="width:100%; max-height:220px; min-height:220px">
                                     @else
                                         <img src="/website/images/default-publication.jpg" alt=""
-                                            class="img-responsive">
+                                            class="img-responsive dev">
                                     @endif
 
                                     {{-- <a href="{{ route('single_career', $publication_parent_subitem->nav_name) }}"> --}}

@@ -39,11 +39,13 @@ class HomeController extends Controller
         //  return $home_News;
 
 
-        $home_commentaries = Navigation::all()->where('page_type', 'Commentaries');
+        // $home_commentaries = Navigation::all()->where('page_type', 'Commentaries');
 
-        // $home_commentaries = Navigation::query()->where('page_type', 'Commentaries')->orderBy('created_at', 'desc')->get();
+        $home_commentaries = Navigation::query()->where('page_type', 'Commentaries')->orderBy('created_at', 'desc')->get();
         // $home_commentaries = $home_commentaries->sortByDesc('created_at');
-
+        // echo "<pre>";
+        // print_r($home_commentaries->all());
+        // die();
 
         $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
 
