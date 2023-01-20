@@ -396,7 +396,7 @@ class HomeController extends Controller
             $publication_parent_sub = $publication_parent->childs;
             //  return $publication_parent_sub;
             return view("website.all-publication")->with(["partners" => $partners, 'jobs' => $jobs, 'menus' => $menus, 'sliders' => $sliders, 'about' => $About, 'global_setting' => $global_setting, 'slug_detail' => $slug_detail, 'publication_parent' => $publication_parent, 'publication_parent_sub' => $publication_parent_sub]);
-            }elseif ($subcategory_type == "Policy Briefs") {
+            }elseif ($subcategory_type == "Policy Briefs" || $subcategory_type == "Policy Briefs group" ) {
             $publication_parent = Navigation::find($subcategory_id);
             $publication_parent_sub = $publication_parent->childs;
             //  return $slug1;
