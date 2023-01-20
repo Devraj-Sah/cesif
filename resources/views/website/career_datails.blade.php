@@ -34,7 +34,7 @@
                 <div class="col-md-9">
                     <div class="blog-post-details">
                         <div class="blog-post-img">
-                            <img class="img-responsive" src="{{ $career_details->banner_image }}" alt="">
+                            <img class="img-responsive" src="{{ $career_details->banner_image }}" alt="" style="border: 2px solid #f1ebeb;">
                         </div>
                         <br>
 

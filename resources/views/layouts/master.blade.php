@@ -69,8 +69,7 @@
     <meta property="twitter:url" content="{{ $global_setting->website_full_address ?? '' }}">
     <meta property="twitter:title" content="{{ $seo->page_title ?? $global_setting->page_title }}">
     <meta property="twitter:description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
-    <meta property="twitter:image"
-        content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
+    <meta property="twitter:image" content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
 
 
 

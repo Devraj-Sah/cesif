@@ -11,26 +11,24 @@
                 <div class="section-block publiction mb-50">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h3  style="margin-top:30px;" class="text-uppercase theme-color h-sep">Recent <span
+                            <h3  style="margin-top:50px;" class="text-uppercase theme-color h-sep">Recent <span
                                     class="text-ultra-bold blue-color">Publications</span> </h3>
                         </div>
                     </div>
                     {{-- default-publication.jpg --}}
                     <div class="row mt-50">
-                      
-                            <div class="publication-sliderE" style="display: flex; flex-wrap:wrap">
+                            <div class="publication-slideE" style="display: flex; flex-wrap:wrap">
                                 @foreach ($home_publication as $home_publication_item)
                                         <div class="col-lg-4 col-md-4">
-                                            
                                             <div class="item">
                                         <a href="{{ route('single_career', $home_publication_item->nav_name) }}">
                                             <div class="publication-img text-center">
                                                 @if ($home_publication_item->banner_image)
                                                     <img src="{{ $home_publication_item->banner_image }}" alt=""
-                                                        class="img-responsive" style="object-fit: unset">
+                                                        class="img-responsive" style="object-fit: unset; min-height:300px">
                                                 @else
                                                     <img src="/website/images/default-publication.jpg" alt=""
-                                                        class="img-responsive" style="width:100%; max-height:220px; min-height:220px">
+                                                        class="img-responsive" style="width:100%; max-height:220px; min-height:300px">
                                                 @endif
                                                 <a
                                                     href="{{ route('single_career', $home_publication_item->nav_name) }}">
@@ -53,8 +51,11 @@
 
 
                             </div>
+                
                       
                     </div>
+                         
+                      
                 </div>
             </div>
             
@@ -63,7 +64,7 @@
                 <div class="mt-50 box-shadow news-event">
                     <h4 class=" theme-color h-sep mb-30">NEWS / <span class="text-ultra-bold blue-color">EVENTS</span>
                     </h4>
-                    <div class="scrollbar-custom">
+                    <div class="scrollbar-custom" style="max-height: 300px">
 
                         @foreach ($home_news as $home_News_item)
                             <div class="s-post mb-20 pb-20 clearfix">
@@ -101,7 +102,7 @@
             </div>
         </div>
         <div class="mt-10 twitter">
-            <a class="twitter-timeline" height="300" href="https://twitter.com/CsifNepal?ref_src=twsrc%5Etfw">Tweets
+            <a class="twitter-timeline" height="360" href="https://twitter.com/CsifNepal?ref_src=twsrc%5Etfw">Tweets
                 by CsifNepal</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
