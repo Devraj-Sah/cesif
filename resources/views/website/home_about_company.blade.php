@@ -25,10 +25,10 @@
                                             <div class="publication-img text-center">
                                                 @if ($home_publication_item->banner_image)
                                                     <img src="{{ $home_publication_item->banner_image }}" alt=""
-                                                        class="img-responsive" style="object-fit: unset; min-height:300px">
+                                                        class="img-responsive" style="object-fit: unset; min-height:330px">
                                                 @else
                                                     <img src="/website/images/default-publication.jpg" alt=""
-                                                        class="img-responsive" style="width:100%; max-height:220px; min-height:300px">
+                                                        class="img-responsive" style="width:100%; max-height:220px; min-height:330px">
                                                 @endif
                                                 <a
                                                     href="{{ route('single_career', $home_publication_item->nav_name) }}">
