@@ -22,7 +22,7 @@
         <div class="container">
             <div class="row" style=" display: flex; flex-wrap: wrap;">
                 @foreach ($publication_parent_sub as $publication_parent_subitem)
-                    <div class="col-md-3 r-event mt-20">
+                    <div class="@if ($publication_parent_subitem->page_type == "Policy Briefs group")col-md-4 @else col-md-3 @endif r-event mt-20">
                         <div class="item">
                             <a href="@if ($publication_parent_subitem->page_type == "Policy Briefs group")/{{$slug1}}/{{$publication_parent_subitem->nav_name}}@else{{ route('single_career', $publication_parent_subitem->nav_name) }}@endif ">
                                 <div class="monthly-img text-center">
