@@ -138,6 +138,7 @@ class NavigationController extends Controller
         $data = $request->all();
         $navigation = Navigation::find($id);
         $parent_id = (intval($navigation->parent_page_id) == 0) ? '' : '/' . intval($navigation->parent_page_id);
+        // return $navigation->parent_page_id;
 
         if ($request->hasFile('icon_image')) {
             if (file_exists(public_path('uploads/icon_image') . '/' . $navigation->icon_image)) {
@@ -190,7 +191,12 @@ class NavigationController extends Controller
             $destinationPath = public_path('uploads/main_attachment');
             $attachment_file->move($destinationPath, $data['main_attachment']);
         }
-
+        $parent_navigation = Navigation::where('id',$navigation->parent_page_id)->first();
+        if ($parent_navigation->page_type == 'Policy Briefs group') {
+            $data['parent_page_id'] = $navigation->parent_page_id;
+        }
+        // print_r($parent_navigation->page_type);
+        //     die();
         Navigation::where('id', $id)->update($data);
 
 
