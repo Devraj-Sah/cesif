@@ -622,4 +622,32 @@ class HomeController extends Controller
         $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
         return view("website.gallery_view")->with(['photos' => $photos, 'menus' => $menus, 'global_setting' => $global_setting, "normal" => $normal]);
     }
+    public function search(Request $request)
+    {
+        $query = $request->input('search_query');
+        // return $query;
+        if (Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%message%")->where('page_type', 'Group')->latest()->first() != null) {
+            $message_id = Navigation::query()->where('nav_category', 'Home')->where('nav_name', 'LIKE', "%message%")->where('page_type', 'Group')->latest()->first()->id;
+            $message = Navigation::query()->where('parent_page_id', $message_id)->latest()->first();
+        } else {
+            $message = null;
+        }
+        if($query == "Commentaries" || $query == "commentaries" )
+            return redirect('/all_data/International-Relations-&-Foreign-Affairs-Commerntaries');
+        if($query == "Policy Briefs" || $query == "policybriefs" || $query == "policybrief" || $query == "Policybrief" )
+            return redirect('/RESEARCH-OUTPUTS/Policy-Briefs');
+        $searchdata = Navigation::where('caption', 'like', "%".$query."%")
+                                ->where(function($query) {
+                                    $query->where('page_type', 'Commentaries')                        
+                                            ->orwhere('page_type', 'Publication')
+                                            ->orwhere('page_type', 'Proceeding Report')
+                                            ->orwhere('page_type', 'Policy Briefs');
+                                })
+                            ->get();
+        // return $searchdata;
+        $global_setting = GlobalSetting::all()->first();
+        $menus = Navigation::query()->where('nav_category', 'Main')->where('page_type', '!=', 'Job')->where('page_type', '!=', 'Photo Gallery')->where('page_type', '!=', 'Notice')->where('parent_page_id', 0)->where('page_status', '1')->orderBy('position', 'ASC')->get();
+        // return $menus;
+        return view("website.search-results")->with(['message' => $message, 'slug_detail' => $searchdata->first(), 'searchdata' => $searchdata, 'menus' => $menus, 'global_setting' => $global_setting, 'job_slug' => $query]);
+    }
 }

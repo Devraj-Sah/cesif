@@ -3300,3 +3300,27 @@ margin-left: 15px;
     width: 100%;
     
 }
+
+
+/* Styles for wrapping the search box */
+
+.main {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    margin: 15px auto;
+}
+
+/* Bootstrap 3 text input with search icon */
+
+.has-search .form-control-feedback {
+    right: initial;
+    left: 0;
+    color: #ccc;
+    margin-top: 7px;
+}
+
+.has-search .form-control {
+    padding-right: 12px;
+    padding-left: 34px;
+}

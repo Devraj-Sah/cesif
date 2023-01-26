@@ -130,6 +130,8 @@ Route::get('/team-details/{dataslug}', [HomeController::class, 'Team_details'])-
 Route::get('/pdf/{dataslug}', [HomeController::class, 'pdf_details'])->name('pdf_details');
 // 
 
+// search
+Route::any('/search', [HomeController::class, 'search'])->name('search');
 
 
 // Team_details

@@ -34,7 +34,7 @@
 {{-- @dd($father) --}}
 
 
-
+{{-- @dd($normal) --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,7 +69,8 @@
     <meta property="twitter:url" content="{{ $global_setting->website_full_address ?? '' }}">
     <meta property="twitter:title" content="{{ $seo->page_title ?? $global_setting->page_title }}">
     <meta property="twitter:description" content="{{ $seo->page_description ?? $global_setting->page_description }}">
-    <meta property="twitter:image" content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}">
+    {{-- <meta property="twitter:image" content="{{ $seo->banner_image ?? '/uploads/icons/' . $global_setting->site_logo }}"> --}}
+    <meta property="twitter:image" content="{{ asset('/website/images/twitter_300.png') }}">
 
 
 
@@ -96,90 +97,122 @@
     <header>
         
         <div class="main-nav">
-             <div class="container">
-                 <div class="topheadbar">
-        <p> WEBSITE UNDER REPAIR</p>
-    </div>
-            <div class="container">
-                <div class="col-md-3 col-sm-3 text-center logo">
-                    <a href="/">
-                        <img class="img-responsive" src="{{ '/uploads/icons/' . $global_setting->site_logo }}"
-                            alt="logo">
-                    </a>
-                </div>
-                <div class="col-md-9 col-sm-9">
-                    <nav class="navbar navbar-default">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div id="navbar" class="navbar-collapse collapse no-margin no-padding">
+            <div class="topheadbar">
+                <p> WEBSITE UNDER REPAIR</p>
+            </div>
+            {{-- <div style="display: flex"> --}}
+                <div class="container">
+                    <div class="col-md-3 col-sm-3 text-center logo">
+                        <a href="/">
+                            <img class="img-responsive" src="{{ '/uploads/icons/' . $global_setting->site_logo }}"
+                                alt="logo">
+                        </a>
+                    </div>
+                    <div class="col-md-9 col-sm-9">
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div id="navbar" class="navbar-collapse collapse no-margin no-padding">
 
-                            <ul class="nav navbar-nav">
-                                <li @if (!isset($slug_detail))  @endif><a href="/">Home</a></li>
+                                <ul class="nav navbar-nav">
+                                    <li @if (!isset($slug_detail))  @endif><a href="/">Home</a></li>
 
-                                @foreach ($menus as $menu)
-                                    @php $submenus = $menu->childs; @endphp
-
-
-                                    
-
-                                    <li class="nav-item dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif><a
-                                            class="dropdown-toggle"
-                                            @if ($menu->nav_name == 'career') @else data-toggle="dropdown" @endif
-                                            role="button" aria-haspopup="true" aria-expanded="false"
-                                            @if ($submenus->count() > 0) href="{{ route('category', $menu->nav_name) }}" @else href="  
-                                    {{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}
-                                            @if ($menu->nav_name == 'career')
-                                            @else
-                                                <span class="caret"></span>
-                                            @endif
+                                    @foreach ($menus as $menu)
+                                        @php $submenus = $menu->childs; @endphp
 
 
-                                        </a>
                                         
 
-                                        @if ($submenus->count() > 0)
-                                            <ul class="dropdown-menu">
-                                                @foreach ($submenus as $sub)
-                                                    <li>
-                                                        <a
-                                                            href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
-                                                    </li>
-                                                @endforeach
+                                        <li class="nav-item dropdown" @if (isset($slug_detail) && $slug_detail->nav_name == $menu->nav_name)  @endif><a
+                                                class="dropdown-toggle"
+                                                @if ($menu->nav_name == 'career') @else data-toggle="dropdown" @endif
+                                                role="button" aria-haspopup="true" aria-expanded="false"
+                                                @if ($submenus->count() > 0) href="{{ route('category', $menu->nav_name) }}" @else href="  
+                                        {{ route('category', $menu->nav_name) }}" @endif>{{ $menu->caption }}
+                                                @if ($menu->nav_name == 'career')
+                                                @else
+                                                    <span class="caret"></span>
+                                                @endif
 
 
-                                                @if ($menu->id == 2669)
-                                                    @foreach ($father as $father_item)
+                                            </a>
+                                            
+
+                                            @if ($submenus->count() > 0)
+                                                <ul class="dropdown-menu">
+                                                    @foreach ($submenus as $sub)
                                                         <li>
-                                                            <a href="{{ route('all-data', $father_item->nav_name) }}">{{ $father_item->caption }}
-
-                                                            </a>
+                                                            <a
+                                                                href="{{ route('subcategory', [$menu->nav_name, $sub->nav_name]) }}">{{ $sub->caption }}</a>
                                                         </li>
                                                     @endforeach
-                                                @else
-                                                @endif
-                                            </ul>
-                                        @endif
+
+
+                                                    @if ($menu->id == 2669)
+                                                        @foreach ($father as $father_item)
+                                                            <li>
+                                                                <a href="{{ route('all-data', $father_item->nav_name) }}">{{ $father_item->caption }}
+
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    @else
+                                                    @endif
+                                                </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                    <li><a href="/contact">Contact</a></li>
+                                    <li>
+                                        <div class="main">  
+                                            <!-- Actual search box -->
+                                            <div class="form-group has-feedback has-search">
+                                                <form action="{{ route('search') }}" method="POST">
+                                                    @csrf
+                                                    <span class="fa fa-search form-control-feedback"></span>
+                                                    <input name="search_query" type="text" class="form-control" placeholder="Search">
+                                                    <input type="submit" hidden>
+                                                </form>
+                                            </div>
+                                            
+                                        </div>
+                                        <script type="text/javascript">
+                                            // Using jQuery.
+                                            
+                                            $(function() {
+                                                $('form').each(function() {
+                                                    $(this).find('input').keypress(function(e) {
+                                                        // Enter pressed?
+                                                        if(e.which == 10 || e.which == 13) {
+                                                            this.form.submit();
+                                                        }
+                                                    });
+                                            
+                                                    $(this).find('input[type=submit]').hide();
+                                                });
+                                            });
+                                            </script>
                                     </li>
-                                @endforeach
-                                <li><a href="/contact">Contact</a></li>
-                            </ul>
-                        </div>
-                        <!--/.nav-collapse -->
-                    </nav>
+                                </ul>
+                            </div>
+                            <!--/.nav-collapse -->
+                        </nav>
 
 
 
 
 
+                    </div>
                 </div>
-            </div>
+               
+            {{-- </div> --}}
         </div>
     </header>
 
