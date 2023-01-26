@@ -97,9 +97,9 @@
     <header>
         
         <div class="main-nav">
-            <div class="topheadbar">
+            {{-- <div class="topheadbar">
                 <p> WEBSITE UNDER REPAIR</p>
-            </div>
+            </div> --}}
             {{-- <div style="display: flex"> --}}
                 <div class="container">
                     <div class="col-md-3 col-sm-3 text-center logo">
